@@ -48,7 +48,7 @@ const PUZZLES = [
     id: 5,
     title: "🏆 ההחלטה הסופית",
     type: "multiple",
-    scenario: `הגעת לדלת האחרונה במבוך! רק הצלחה כאן תפתח לך אותה.\n\nקרא את התרחיש בקפידה:`    ,
+    scenario: `הגעת לדלת האחרונה במבוך! רק הצלחה כאן תפתח לך אותה.\n\nקרא את התרחיש בקפידה:`,
     question: `דניאל, בן 17, קיבל הצעת עבודה בשכר גבוה שמחייבת אותו לנשור מהלימודים. \nהמשפחה צריכה כסף, אבל ההורים אומרים שהוא חייב להמשיך ללמוד.\nמה עדיף שדניאל יעשה?`,
     hint: "💡 חשוב על טווח ארוך: מה יתן לו יותר אפשרויות בחיים?",
     choices: [
@@ -398,6 +398,13 @@ async function generateCode() {
     // Lock button
     document.getElementById('btn-generate').disabled = true;
     idInput.disabled = true;
+
+    // Show Google Forms button
+    const formsWrapper = document.getElementById('forms-btn-wrapper');
+    if (formsWrapper) formsWrapper.style.display = 'block';
+    setTimeout(() => {
+      if (formsWrapper) formsWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 400);
 
   } catch (err) {
     idError.textContent = '⚠️ שגיאה בחישוב – אנא נסה שוב.';
