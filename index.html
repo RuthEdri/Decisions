@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>מבוך ההחלטות – משחק אינטראקטיבי</title>
+  <meta name="description" content="משחק חדר בריחה אינטראקטיבי בנושא קבלת החלטות, לבנים בני 16–19" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ========== INTRO SCREEN ========== -->
+  <section id="intro-screen">
+    <div class="intro-icon">🧩</div>
+
+    <h1 class="game-title">מבוך ההחלטות</h1>
+    <p class="game-subtitle">משחק חדר בריחה אינטראקטיבי</p>
+
+    <div class="intro-desc">
+      <p>👤 <strong>ברוך הבא למשחק!</strong></p>
+      <p>
+        לפניך 5 חידות שחייבים לפתור אותן לפי סדר.<br>
+        רק אחרי שתפתור חידה, הדלת לחידה הבאה תיפתח.
+      </p>
+      <p>
+        בכל חידה תמצא כפתור <strong>💡 רמז</strong> אם תתקע.<br>
+        בסוף המשחק תזין את מספר תעודת הזהות שלך<br>
+        ותקבל <strong>קוד ייחודי</strong> להוכחה שסיימת!
+      </p>
+      <p>🔒 המשחק נעול – אי אפשר לדלג. בהצלחה!</p>
+    </div>
+
+    <button class="btn-start" id="btn-start">🚀 התחל את המשחק</button>
+  </section>
+
+  <!-- ========== GAME SCREEN ========== -->
+  <section id="game-screen">
+    <div class="game-header">
+      <h1>🧩 מבוך ההחלטות</h1>
+      <div style="display:flex; align-items:center; gap:1rem; margin-top:0.8rem; flex-wrap:wrap; justify-content:center;">
+        <span id="progress-label" style="color:var(--text-muted); font-size:0.9rem; white-space:nowrap;">0 / 5 חידות</span>
+        <div class="progress-bar-container" style="flex:1; min-width:150px;">
+          <div class="progress-bar-fill" id="progress-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="puzzles-container"></div>
+  </section>
+
+  <!-- ========== FINAL SCREEN ========== -->
+  <section id="final-screen">
+    <div class="final-wrapper">
+      <div class="trophy-icon">🏆</div>
+      <h2 class="final-title">כל הכבוד!</h2>
+      <p class="final-msg">
+        עשית את זה! עברת את כל חמשת שלבי המבוך.<br>
+        עכשיו הזן את מספר תעודת הזהות שלך כדי לקבל<br>
+        <strong>קוד ייחודי אישי</strong> המעיד על הצלחתך.
+      </p>
+
+      <div class="id-section">
+        <label class="id-label" for="id-input">📋 הזן את מספר תעודת הזהות שלך:</label>
+        <div class="id-input-row">
+          <input
+            type="text"
+            id="id-input"
+            class="id-input"
+            placeholder="123456789"
+            maxlength="9"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            aria-label="מספר תעודת זהות"
+          />
+          <button class="btn-generate" id="btn-generate">הפק קוד</button>
+        </div>
+        <div class="id-error" id="id-error"></div>
+
+        <!-- Code result -->
+        <div class="code-result" id="code-result">
+          <div class="code-box">
+            <div class="code-label">הקוד האישי שלך הוא:</div>
+            <div class="code-value" id="code-value"></div>
+            <div class="encouragement" id="encouragement-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="game.js"></script>
+</body>
+</html>
